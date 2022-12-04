@@ -1,0 +1,19 @@
+@import '../../style.scss';
+@import '../../_sections/videos.scss';
+@import '../../_sections/news.scss';
+@import '../../_sections/aside-news.scss';
+@import '../../_sections/aside-poll.scss';
+@import '../../_sections/aside-donate.scss';
+
+.main__video {
+    &-inner {
+        display: flex;
+        flex-direction: column;
+        padding: 25px 0 50px;
+
+        @include screen-tb() {
+            flex-direction: row;
+            padding: 50px 0 100px;
+        }
+    }
+}

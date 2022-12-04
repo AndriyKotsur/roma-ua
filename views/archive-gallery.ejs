@@ -1,0 +1,28 @@
+<%-  include('../partials/header')-%>
+<%-  include('../partials/preloader.ejs')-%>
+<section class="archive-gallery">
+    <div class="archive-gallery__inner">
+        <h1 class="archive-gallery__header">Архів із фотографіями</h1>
+        <% if(photos.length) { %>
+        <ul class="archive-gallery__list">
+                <% photos.forEach(item => { %>
+                    <li class="archive-gallery__item">
+                        <div class="archive-gallery__wrapper">
+                            <picture class="archive-gallery__image">
+                                <svg class="icon icon-folder">
+                                    <use href="/icons/sprite.svg#icon-folder"></use>
+                                </svg>
+                            </picture>
+                            <h2 class="archive-gallery__title"><%= item.title %></h2>
+                            <a href="/photos/<%= item.url %>" class="archive-gallery__link"></a>
+                        </div>
+                    </li>
+                <% }) %>
+            </ul>
+            <%-  include('../partials/pagination', {page: 'photos'})-%>
+        <% } else { %>
+            <span class="error-message error-message__extended">Немає доданих архівів із фотографіями :(</span>
+        <% } %>
+    </div>
+</section>
+<%-  include('../partials/footer')-%>

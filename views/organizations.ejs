@@ -1,0 +1,36 @@
+<%-  include('../partials/header')-%>
+<%-  include('../partials/preloader.ejs')-%>
+<section class="organizations">
+    <div class="organizations__inner">
+        <% switch (categoryUrl) {
+            case 'transcarpathia' : %>
+            <h1 class="organizations__header">Організації Закарпаття</h1>
+                <% break;
+            case 'ukraine' : %>
+            <h1 class="organizations__header">Організації України</h1>
+                <% break;
+            case 'world' : %>
+            <h1 class="organizations__header">Міжнародні організації</h1>
+                <% break;
+            } %>
+        <% if(organization.length) { %>
+        <ul class="organizations-list">
+            <% organization.forEach(item => { %>
+            <li class="organizations-item">
+                <picture class="organizations__image">
+                    <img class="lazyload" data-src="<%= item.image %>" alt="<%= item.title %>">
+                </picture>
+                <div class="organizations__info">
+                    <h2 class="organizations__title"><%= item.title %></h2>
+                </div>
+                <a href="/organization/<%= item.category %>/<%= item.url %>" class="organizations__link"></a>
+            </li>
+            <% }) %>
+        </ul>
+        <%-  include('../partials/category-pagination', {page: 'organization', category: categoryUrl})-%>
+        <% } else { %>
+            <span class="error-message error-message__extended">Немає доданих організації :(</span>
+        <% } %>
+    </div>
+</section>
+<%-  include('../partials/footer')-%>

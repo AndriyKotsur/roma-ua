@@ -1,0 +1,221 @@
+@import '../../style.scss';
+
+.gallery {
+    &__inner {
+        max-width: 1440px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 0 15px 50px;
+        margin: 0 auto;
+
+        @include screen-tb() {
+            padding: 25px 20px 50px;
+        }
+
+        @include screen-l() {
+            padding: 50px 20px 100px;
+        }
+    }
+
+    &__header {
+        margin-bottom: 25px;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.04;
+        text-align: center;
+
+        @include screen-tb() {
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+
+        @include screen-xl() {
+            margin-bottom: 50px;
+            font-size: 32px;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 -10px -20px;
+
+        @include screen-tb {
+            margin: 0 -20px -20px;
+        }
+
+        @include screen-xl {
+            margin: 0 -30px -50px;
+        }
+    }
+
+    &__item {
+        position: relative;
+        width: calc((100% / 2) - (50px / 2));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 10px 20px;
+        cursor: pointer;
+
+        @include screen-tb() {
+            width: calc((100% / 3) - (110px / 3));
+            margin: 0 15px 20px;
+        }
+
+        @include screen-xl () {
+            width: calc((100% / 3) - (200px / 3));
+            margin: 0 30px 50px;
+        }
+    }
+
+    &__image {
+        display: block;
+        height: calc(70px + 10vw);
+
+        @include screen-tb {
+            height: calc(85px + 10vw);
+        }
+
+        @include screen-xl {
+            height: 280px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    }
+
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 400px;
+        display: flex;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(20px);
+        z-index: 10;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        pointer-events: none;
+
+        &.active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 101;
+            pointer-events: auto;
+        }
+
+        &__track {
+            width: 100vw;
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        &__item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                display: block;
+                max-width: calc(100vw - 2em);
+                max-height: 60vh;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            &.active,
+            &.loaded {
+                img {
+                    opacity: 1;
+                }
+
+                &>.loader {
+                    display: none;
+                }
+            }
+
+            .loader {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+
+        &__prev {
+            visibility: hidden;
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+            transition: opacity 0.3s ease-out;
+            -webkit-tap-highlight-color: transparent;
+            opacity: 0;
+
+            &.active {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+        &__next {
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%);
+            transition: opacity 0.3s ease-out;
+            -webkit-tap-highlight-color: transparent;
+            opacity: 0;
+
+            &.active {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+        &__close {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            width: 50px;
+            height: 50px;
+            -webkit-tap-highlight-color: transparent;
+
+            &::after,
+            &::before {
+                content: ' ';
+                position: absolute;
+                top: 0;
+                height: 50px;
+                width: 2px;
+                background-color: #fff;
+            }
+
+            &::after {
+                transform: rotate(45deg);
+            }
+
+            &::before {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}

@@ -1,0 +1,83 @@
+    <% if(article) { %>
+    <div class="data__header">
+        <picture class="data__header-image">
+            <img class="lazyload" data-src="<%= article.thumbnail ? article.thumbnail : article.image %>" alt="<%= article.title %>">
+        </picture>
+        <div class="data__header-content">
+            <span class="data__header-time"><%= article.date.split(',')[1] %></span>
+            <div class="data__header-info">
+                <span class="data__header-date"><%= article.date.split(',')[0] %></span>
+                <div class="data__header-icons">
+                    <a href="#socials" class="anchor data__header-views">
+                        <svg class="icon icon-views">
+                            <use href="/icons/sprite.svg#icon-eye"></use>
+                        </svg>
+                        <%= article.views %>
+                    </a>
+                    <a href="#comments" class="anchor data__header-comments">
+                        <svg class="icon icon-comments">
+                            <use href="/icons/sprite.svg#icon-comment"></use>
+                        </svg>
+                        <%= article.comments.length %>
+                    </a>
+                </div>
+            </div>
+            <h1 class="data__header-title"><%= article.title %></h1>
+        </div>
+    </div>
+    <div class="data">
+        <div class="data__body">
+            <%- article.content %>
+        </div>
+    </div>
+    <% if(article.source) { %>
+    <div class="data__source">
+        <span class="data__source-text">
+            Джерело: <%= article.source %>
+        </span>
+    </div>
+    <% } %>
+    <% if(article.author) { %>
+    <div class="data__author">
+        <span class="data__author-text">
+            Автор: <%= article.author %>
+        </span>
+    </div>
+    <% } %>
+    <% if(Array.isArray(article.tags) && article.tags.length) { %>
+    <div class="data__labels">
+        <% article.tags.forEach(tag => { %>
+            <% if(tag) { %>
+                <span class="data__label"><%= tag %></span>
+            <% } %>
+        <% }) %>
+    </div>
+    <% } %>
+<div id="socials" class="data__socials">
+    <ul class="data__socials-list">
+        <li class="data__socials-item">
+            <a href="https://www.facebook.com/sharer.php?u=http://romaua.org.ua/<%= articleId %><%= categoryId %><%= article.url %>/" target="__blank" rel="nofollow noopener" class="data__socials-link">
+                <svg class="icon icon-facebook">
+                    <use href="/icons/sprite.svg#icon-facebook"></use>
+                </svg>
+            </a>
+        </li>
+        <li class="data__socials-item">
+            <a href="https://twitter.com/share?url=https://romaua.org.ua/" target="__blank" rel="noreferrer" class="data__socials-link"> 
+                <svg class="icon icon-twitter">
+                    <use href="/icons/sprite.svg#icon-twitter"></use>
+                </svg>
+            </a>
+        </li>
+        <li class="data__socials-item">
+            <a href="https://www.linkedin.com/shareArticle/?mini=true&url=https://romaua.org.ua/<%= articleId %><%= categoryId %><%= article.url %>/" target="__blank" rel="nofollow noopener" class="data__socials-link">
+                <svg class="icon icon-linkedin">
+                    <use href="/icons/sprite.svg#icon-linkedin"></use>
+                </svg>
+            </a>
+        </li>
+    </ul>
+</div>
+<% } else { %>
+    <span class="error-message">Немає доданої статті :(</span>
+<% } %>

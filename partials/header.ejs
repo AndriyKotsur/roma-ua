@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="uk-UA">
+
+<head>
+    <% switch (pageId) {
+    case 'article' : %>
+    <title><%= article.title %></title>
+    <% break;
+    case 'news' : %>
+    <title>Новини: Інформаційно-аналітичне агентство «РомаУА» - онлайн-платформа та інформаційний бренд, що висвітлює
+        життя ромів України та світу</title>
+    <% break;
+    case 'videos' : %>
+    <title>Відео: Інформаційно-аналітичне агентство «РомаУА» - онлайн-платформа та інформаційний бренд, що висвітлює
+        життя ромів України та світу</title>
+    <% break;
+        case 'organizations' : %>
+    <title>Організації: Інформаційно-аналітичне агентство «РомаУА» - онлайн-платформа та інформаційний бренд, що
+        висвітлює життя ромів України та світу</title>
+    <% break;
+        case 'portraits' : %>
+    <title>Портрети ромів: Інформаційно-аналітичне агентство «РомаУА» - онлайн-платформа та інформаційний бренд, що
+        висвітлює життя ромів України та світу</title>
+    <% break;
+        case 'media' : %>
+    <title>Ромські медіа: Інформаційно-аналітичне агентство «РомаУА» - онлайн-платформа та інформаційний бренд, що
+        висвітлює життя ромів України та світу</title>
+    <% break;
+    case 'archiveGallery' : %>
+    <title>Архів із фотографіями: Інформаційно-аналітичне агентство «РомаУА» - онлайн-платформа та інформаційний бренд,
+        що висвітлює життя ромів України та світу</title>
+    <% break;
+    case 'gallery' : %>
+    <title>Архів із фотографіями: Інформаційно-аналітичне агентство «РомаУА» - онлайн-платформа та інформаційний бренд,
+        що висвітлює життя ромів України та світу</title>
+    <% break;
+    case 'archiveBooks' : %>
+    <title>Архів із книжками: Інформаційно-аналітичне агентство «РомаУА» - онлайн-платформа та інформаційний бренд,
+        що висвітлює життя ромів України та світу</title>
+    <% break;
+    case 'book' : %>
+    <title>Архів із книжками: Інформаційно-аналітичне агентство «РомаУА» - онлайн-платформа та інформаційний бренд,
+        що висвітлює життя ромів України та світу</title>
+    <% break;
+    case 'archiveDocuments' : %>
+    <title>Архів із документами: Інформаційно-аналітичне агентство «РомаУА» - онлайн-платформа та інформаційний бренд,
+        що висвітлює життя ромів України та світу</title>
+    <% break;
+    case 'document' : %>
+    <title>Архів із документами: Інформаційно-аналітичне агентство «РомаУА» - онлайн-платформа та інформаційний бренд,
+        що висвітлює життя ромів України та світу</title>
+    <% break;
+    default: %>
+    <title>Інформаційно-аналітичне агентство «РомаУА» - онлайн-платформа та інформаційний бренд, що висвітлює життя
+        ромів України та світу</title>
+    <% break;
+    } %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Social assets -->
+    <% if(pageId === 'article' && articleId) { %>
+    <meta property="og:locale" content="uk_UA">
+    <meta name="description" content="<%= article.title %>">
+    <meta property="og:url" content="https://romaua.org.ua/<%= articleId %><%= categoryId %><%= article.url %>">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<%= article.title %>">
+    <meta property="og:description" content="<%= article.title %>">
+    <meta property="og:image" content="https://romaua.org.ua/assets/newsletter.jpg">
+    <meta property="og:image:secure_url" content="https://romaua.org.ua/assets/sharer.jpg">
+    <meta property="og:image:height" content="300">
+    <meta property="og:image:width" content="700">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= article.title %>">
+    <meta name="twitter:description" content="<%= article.title %>">
+    <meta name="twitter:image" content="/assets/newsletter.jpg">
+    <meta property="fb:app_id" content="2289455674531404">
+    <meta name="twitter:site" content="@RomaUA14">
+    <meta property="og:site_name" content="РомаУА | RomaUA">
+    <meta property="og:locale" content="uk_UA">
+    <% } else { %>
+    <meta property="og:locale" content="uk_UA">
+    <meta name="description"
+        content="Ми незалежний інформаційно-аналітичний ресурс, головною метою створення якого є подача «позитивного» інформаційного контенту щодо ромської національної меншини. «РомаУА» - це широка онлайн-платформа для розміщення аудіовізуальної продукції, текстів новин, фоторепортажів, архівних та історичних матеріалів, майданчик для дискусії та публічних виступів.">
+    <meta property="og:url" content="https://romaua.org.ua/">
+    <meta property="og:type" content="website">
+    <meta property="og:title"
+        content="Інформаційно-аналітичне агентство «РомаУА» - онлайн-платформа та інформаційний бренд, що висвітлює життя ромів України та світу">
+    <meta property="og:description"
+        content="Ми незалежний інформаційно-аналітичний ресурс, головною метою створення якого є подача «позитивного» інформаційного контенту щодо ромської національної меншини. «РомаУА» - це широка онлайн-платформа для розміщення аудіовізуальної продукції, текстів новин, фоторепортажів, архівних та історичних матеріалів, майданчик для дискусії та публічних виступів.">
+    <meta property="og:image" content="/assets/newsletter.jpg">
+    <meta property="og:image:secure_url" content="/assets/sharer.jpg">
+    <meta property="og:image:height" content="300">
+    <meta property="og:image:width" content="700">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title"
+        content="Інформаційно-аналітичне агентство «РомаУА» - онлайн-платформа та інформаційний бренд, що висвітлює життя ромів України та світу">
+    <meta name="twitter:description"
+        content="Ми незалежний інформаційно-аналітичний ресурс, головною метою створення якого є подача «позитивного» інформаційного контенту щодо ромської національної меншини. «РомаУА» - це широка онлайн-платформа для розміщення аудіовізуальної продукції, текстів новин, фоторепортажів, архівних та історичних матеріалів, майданчик для дискусії та публічних виступів.">
+    <meta name="twitter:image" content="/assets/newsletter.jpg">
+    <% } %>
+    <!-- Icon assets -->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="/assets/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="preload" as="image" href="/assets/background.jpg">
+    <link rel="preconnect" href="//www.google-analytics.com">
+    <link rel="preconnect" href="//www.googletagmanager.com">
+    <!-- Styles assets -->
+    <link rel="stylesheet" as="style" href="/css/<%= pageId %>.page.css">
+    <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico">
+    <link rel="canonical" href="https://romaua.org.ua">
+    <!-- Scripts assets -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXTEC5JTB3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-FXTEC5JTB3');
+    </script>
+    <script defer src="/scripts/<%= pageId %>.bundle.js"></script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-T4GVBQ2');
+    </script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body id="app" class="body">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T4GVBQ2" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <header class="header">
+        <div class="header__navigation">
+            <div class="header__donate-desktop">
+                <a href="/donate" class="btn btn-green header__btn">Підтримати</a>
+            </div>
+            <div class="header__date">
+                <p id="date" class="header__date-title"></p>
+            </div>
+            <div class="header__search">
+                <div class="header__search-field">
+                    <input id="search" type="search" name="search" class="header__search-input"
+                        placeholder="Пошук новин..." autocomplete="off">
+                    <span class="header__search-icon">
+                        <svg class="icon icon-search">
+                            <use href="/icons/sprite.svg#icon-search"></use>
+                        </svg>
+                    </span>
+                    <div id="search-results" class="header__search-results"></div>
+                </div>
+            </div>
+            <button id="burger" class="header__hamburger">
+                <span></span>
+            </button>
+        </div>
+        <div class="header__banner">
+            <picture class="header__background">
+                <source media="(min-width: 1440px)" srcset="/assets/background-desktop.png" />
+                <img src="/assets/background-mobile.jpg" alt="Header background image">
+            </picture>
+            <a href="/" aria-label="Logotype" class="header__logotype">
+                <svg class="icon icon-header">
+                    <use href="/icons/sprite.svg#icon-header"></use>
+                </svg>
+                <svg class="icon icon-mobile">
+                    <use href="/icons/sprite.svg#icon-mobile"></use>
+                </svg>
+            </a>
+        </div>
+        <div id="header-menu" class="header__menu">
+            <ul class="header__menu-list">
+                <li class="header__menu-item"><a href="/" class="header__menu-link">
+                        <svg class="icon icon-home">
+                            <use href="/icons/sprite.svg#icon-home"></use>
+                        </svg>Головна</a></li>
+                <li class="header__menu-item has-submenu">
+                    <div role="button" class="header__menu-link">
+                        Новини
+                        <svg class="icon icon-dropdown">
+                            <use href="/icons/sprite.svg#icon-dropdown"></use>
+                        </svg>
+                    </div>
+                    <div class="header__submenu">
+                        <ul class="header__submenu-list">
+                            <li class="header__submenu-item"><a href="/news/transcarpathia"
+                                    class="header__submenu-link">Закарпаття</a></li>
+                            <li class="header__submenu-item"><a href="/news/ukraine"
+                                    class="header__submenu-link">Україна</a></li>
+                            <li class="header__submenu-item"><a href="/news/world" class="header__submenu-link">Світ</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="header__menu-item has-submenu">
+                    <div role="button" href="" class="header__menu-link">
+                        Відео
+                        <svg class="icon icon-dropdown">
+                            <use href="/icons/sprite.svg#icon-dropdown"></use>
+                        </svg>
+                    </div>
+                    <div class="header__submenu">
+                        <ul class="header__submenu-list">
+                            <li class="header__submenu-item"><a href="/video/tv-romano-givipen"
+                                    class="header__submenu-link">ТВ Романо джівіпен</a></li>
+                            <li class="header__submenu-item"><a href="/video/tv-romano-lav"
+                                    class="header__submenu-link">ТВ Романо лав</a></li>
+                            <li class="header__submenu-item"><a href="/video/pap-jaz-fest"
+                                    class="header__submenu-link">Пап джаз фест</a></li>
+                            <li class="header__submenu-item"><a href="/video/other"
+                                    class="header__submenu-link">Різне</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="header__menu-item has-submenu">
+                    <div role="button" class="header__menu-link">
+                        Громадський сектор
+                        <svg class="icon icon-dropdown">
+                            <use href="/icons/sprite.svg#icon-dropdown"></use>
+                        </svg>
+                    </div>
+                    <div class="header__submenu">
+                        <ul class="header__submenu-list">
+                            <li class="header__submenu-item"><a href="/organization/transcarpathia"
+                                    class="header__submenu-link">Організації Закарпаття</a></li>
+                            <li class="header__submenu-item"><a href="/organization/ukraine"
+                                    class="header__submenu-link">Організації України</a></li>
+                            <li class="header__submenu-item"><a href="/organization/world"
+                                    class="header__submenu-link">Міжнародні організації</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="header__menu-item"><a href="/media" class="header__menu-link">Ромські медіа</a></li>
+                <li class="header__menu-item"><a href="/portrait" class="header__menu-link">Портрети ромів</a></li>
+            </ul>
+            <div id="header-donate" class="header__donate-mobile">
+                <a href="/donate" class="btn btn-green header__btn">Підтримати</a>
+            </div>
+        </div>
+    </header>

@@ -1,0 +1,61 @@
+<%-  include('../partials/header')-%>
+<%-  include('../partials/preloader.ejs')-%>
+<section class="book">
+    <div class="book__inner">
+        <% if(book.length) { %>
+            <% book.forEach(item => { %>
+            <div class="book__item">
+                <picture class="book__image">
+                    <svg class="icon icon-book">
+                        <use href="/icons/sprite.svg#icon-book"></use>
+                    </svg>
+                </picture>
+                <div class="book__content">
+                    <h1 class="book__header"><%= item.title %></h1>
+                    <% if(item.url && item.document) { %>
+                        <a href="/download/<%= item.url %>" class="book__link">
+                            Завантажити
+                            <svg class="icon icon-download">
+                                <use href="/icons/sprite.svg#icon-download"></use>
+                            </svg>
+                        </a>
+                    <% } %>
+                    <div id="description" class="book__description">
+                        <span class="book__text">Опис:</span>
+                        <p class="book__bibliography"><%= item.bibliographicDescription %></p>
+                        <p class="book__annotation"><%= item.annotation %></p>
+                    </div>
+                    <button type="button" id="extend" class="book__extend">
+                        <span>Показати більше</span>
+                    </button>
+                </div>
+            </div>
+            <% }) %>
+        <% } else { %>
+            <span class="error-message">Інформаці про книгу відсутня</span>
+        <% } %>
+        <div class="related-books">
+            <% if(books.length) { %>
+            <h2 class="related-books__header">Книги із цієї категорії:</h2>
+            <ul class="related-books__list">
+                <% books.forEach(item => { %>
+                <li class="related-books__item">
+                    <div class="related-books__wrapper">
+                        <picture class="related-books__image">
+                            <svg class="icon icon-book">
+                                <use href="/icons/sprite.svg#icon-book"></use>
+                            </svg>
+                        </picture>
+                        <h2 class="related-books__title"><%= item.title %></h2>
+                        <a href="/books/<%= item.url %>" class="related-books__link"></a>
+                    </div>
+                </li>
+                <% }) %>
+            </ul>
+            <% } else { %>
+                <span class="error-message error-message__extended">Немає книг із цієї категорії :(</span>
+            <% } %>
+        </div>
+    </div>
+</section>
+<%-  include('../partials/footer')-%>

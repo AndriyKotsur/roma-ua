@@ -1,0 +1,529 @@
+.header {
+  &__navigation {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 15px;
+    margin: 0 auto;
+    transform: translateX(-50%);
+    z-index: 10;
+
+    @include screen-l() {
+      align-items: baseline;
+      padding: 10px 20px;
+    }
+  }
+
+  &__donate {
+    &-desktop {
+      @include hidden;
+
+      @include screen-l {
+        visibility: visible;
+        width: 33.333%;
+        position: relative;
+        top: unset;
+        left: unset;
+        display: block;
+        transform: unset;
+        z-index: 1;
+      }
+    }
+
+    &-mobile {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+
+      @include screen-l {
+        @include hidden;
+      }
+    }
+  }
+
+  &__btn {
+    width: 150px;
+    display: block;
+    transition: all 0.25s;
+
+    &:hover {
+      background: $color7;
+      transition: all 0.25s;
+    }
+  }
+
+  &__date {
+    @include hidden();
+
+    @include screen-l() {
+      visibility: visible;
+      width: 33.333%;
+      display: flex;
+      justify-content: center;
+
+      &-title {
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.21;
+        color: #fff;
+
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  &__search {
+    width: 100%;
+    position: relative;
+    margin-right: 15px;
+
+    &.hamburger-active {
+      visibility: hidden;
+    }
+
+    @include screen-l() {
+      width: 33.333%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-right: 0;
+    }
+
+    &-field {
+      position: relative;
+
+      @include screen-l {
+        width: 300px;
+      }
+    }
+
+    &-input {
+      width: 100%;
+      padding: 8px 30px 8px 8px;
+      background: transparent;
+      border: 2px solid #fff;
+      border-radius: 4px;
+      -webkit-border-radius: 0;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.25;
+      color: #fff;
+      -webkit-appearance: none;
+
+      &::placeholder {
+        font-size: 14px;
+        color: #fff;
+      }
+
+      @include screen-l() {
+        padding: 8px 30px 8px 0;
+        border: none;
+        border-bottom: 2px solid #fff;
+        border-radius: 0;
+        font-size: 14px;
+      }
+    }
+
+    &-icon {
+      position: absolute;
+      top: 50%;
+      right: 8px;
+      transform: translateY(-50%);
+
+      @include screen-l() {
+        right: 0;
+      }
+    }
+
+    &-results {
+      visibility: hidden;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 100%;
+      max-height: 275px;
+      display: flex;
+      flex-direction: column;
+      padding: 15px 10px;
+      background: #fff;
+      border-radius: 4px;
+      overflow-y: auto;
+      z-index: 6;
+
+      @include screen-l {
+        max-height: 315px;
+        padding: 20px 15px;
+        z-index: 10;
+      }
+
+      &.active {
+        visibility: visible;
+      }
+
+      .loader {
+        margin: 20px auto;
+      }
+
+      .search__results {
+        &-item {
+          &:not(:last-child) {
+            margin-bottom: 15px;
+          }
+        }
+
+        &-title {
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.5;
+          color: #000;
+          overflow: hidden;
+
+          @include screen-l {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  &__banner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: linear-gradient(180deg, transparent, #000);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: linear-gradient(0deg, #fff 0%, transparent);
+    }
+  }
+
+  &__logotype {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-tap-highlight-color: transparent;
+    z-index: 2;
+
+    @include screen-tb {
+      top: 65%;
+    }
+
+    @include screen-xl {
+      top: 55%;
+    }
+  }
+
+  &__background {
+    width: 100%;
+    height: 300px;
+
+    @include screen-tb {
+      height: 425px;
+    }
+
+    @include screen-l {
+      height: 100%;
+      max-height: 550px;
+    }
+
+    @include screen-xl {
+      max-height: 675px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 30%;
+    }
+  }
+
+  &__hamburger {
+    display: flex;
+    align-items: center;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 10;
+
+    @include screen-l() {
+      @include hidden();
+    }
+
+    & > span,
+    & > span::before,
+    & > span::after {
+      position: absolute;
+      display: block;
+      width: 30px;
+      height: 3px;
+      background: #fff;
+      @include transition();
+      z-index: 15;
+    }
+
+    & > span::before {
+      content: '';
+      top: -10px;
+    }
+
+    & > span::after {
+      content: '';
+      top: 10px;
+    }
+
+    &.hamburger-active {
+
+      & > span {
+        transform: rotate(45deg);
+        background: #fff;
+      }
+
+      & > span::before {
+        top: 0;
+        transform: rotate(0);
+        background: #fff;
+      }
+
+      & > span::after {
+        top: 0;
+        transform: rotate(90deg);
+        background: #fff;
+      }
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 400px;
+    background: $color1;
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+    z-index: 8;
+
+    &.hamburger-active {
+      transform: translateX(0);
+      overflow: auto;
+    }
+
+    @include screen-l() {
+      visibility: visible;
+      position: relative;
+      top: 0;
+      left: 0;
+      min-height: unset;
+      transform: translateX(0);
+    }
+
+    &-list {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: translate(-50%, -50%);
+
+      @include screen-l() {
+        position: relative;
+        top: 0;
+        left: 0;
+        flex-direction: row;
+        transform: none;
+      }
+    }
+
+    &-item {
+      width: 100%;
+      text-align: center;
+      @include transition;
+      -webkit-tap-highlight-color: transparent;
+      cursor: pointer;
+
+      &.active {
+        .icon-dropdown {
+          transform: rotateZ(180deg);
+          @include transition;
+        }
+      }
+
+      @include screen-l() {
+        width: auto;
+        text-align: left;
+        -webkit-tap-highlight-color: unset;
+
+        &.active {
+          background: $color2;
+          @include transition;
+        }
+      }
+    }
+
+    &-link {
+      position: relative;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 32px;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.21;
+      color: #fff;
+      text-align: center;
+      text-transform: uppercase;
+
+      @include screen-l {
+        padding: 12px 28px;
+      }
+
+      @include screen-xl {
+        padding: 12px 32px;
+      }
+
+      .icon-home {
+        position: absolute;
+        left: 0;
+
+        @include screen-l {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          margin-right: 0;
+        }
+      }
+
+      .icon-dropdown {
+        position: absolute;
+        right: 15px;
+        margin-left: 10px;
+        @include transition;
+
+        @include screen-l {
+          right: 10px;
+        }
+
+        @include screen-xl {
+          right: 15px;
+        }
+      }
+    }
+  }
+
+  &__submenu {
+    max-height: 0;
+    background: $color2;
+    transition: all 0.3s ease-out;
+    overflow: hidden;
+
+    &.submenu-active {
+      max-height: 156px;
+      transition: all 0.3s ease-out;
+    }
+
+    @include screen-l() {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      width: 100%;
+      display: block;
+      margin-top: 0;
+    }
+
+    &-list {
+      max-width: 1080px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+
+      @include screen-l {
+        flex-direction: row;
+      }
+    }
+
+    &-item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include screen-l {
+        width: auto;
+      }
+    }
+
+    &-link {
+      position: relative;
+      width: 100%;
+      padding: 10px 0;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.42;
+      color: #fff;
+      text-transform: uppercase;
+
+      @include screen-l {
+        display: inline-block;
+        padding: 12px 32px;
+
+        &::after {
+          content: "";
+          background: none repeat scroll 0 0 transparent;
+          position: absolute;
+          width: 0;
+          height: 4px;
+          display: block;
+          left: 50%;
+          bottom: 0;
+          background: #fff;
+          transition: width 0.5s ease 0s, left 0.5s ease 0s;
+        }
+
+        &:hover::after {
+          width: 100%;
+          left: 0;
+        }
+      }
+    }
+  }
+}

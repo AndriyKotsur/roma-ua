@@ -1,0 +1,23 @@
+<%-  include('../partials/header')-%>
+<%-  include('../partials/preloader.ejs')-%>
+<section class="gallery">
+    <div class="gallery__inner">
+        <% if(photoArchive) { %>
+            <% photoArchive.forEach((item) => { %>
+            <h1 class="gallery__header"><%= item.title %></h1>
+            <ul class="gallery__list">
+                <% for(let [index, image] of item.images.entries()) { %>
+                <a href="<%= image %>" data-modal="gallery" class="gallery__item">
+                    <picture  class="gallery__image">
+                        <img class="lazyload" data-src="<%= image %>" data-index="<%= index %>" data-src="<%= image %>" alt="Архів події">
+                    </picture>
+                </a>
+                <% } %>
+            </ul>
+            <% }) %>
+        <% } else { %>
+            <span class="error-message error-message__extended">Немає доданих фотографій :(</span>
+        <% } %>
+    </div>
+</section>
+<%-  include('../partials/footer')-%>

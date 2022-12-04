@@ -1,0 +1,34 @@
+<%-  include('../partials/header')-%>
+<%-  include('../partials/preloader.ejs')-%>
+<section class="main__news">
+    <div class="container">
+        <div class="main__news-inner">
+            <div class="main__container">
+                <% switch (categoryUrl) {
+                    case 'transcarpathia' : %>
+                    <h3 class="title title-plain">Новини Закарпаття</h3>
+                        <% break;
+                    case 'ukraine' : %>
+                    <h3 class="title title-plain">Новини України</h3>
+                        <% break;
+                    case 'world' : %>
+                    <h3 class="title title-plain">Новини Світу</h3>
+                        <% break;
+                    } %>
+                <%-  include('../partials/news')-%>
+                <%-  include('../partials/category-pagination', {page: 'news', category: categoryUrl})-%>
+            </div>
+            <div class="aside__container">
+                <aside class="aside-video">
+                    <h3 class="title title-outline">
+                        Відео
+                    </h3>
+                    <%-  include('../partials/aside-videos')-%>
+                </aside>
+                <%-  include('../partials/aside-poll')-%>
+            </div>
+        </div>
+    </div>
+</section>
+<%-  include('../partials/loader.ejs')-%>
+<%-  include('../partials/footer')-%>

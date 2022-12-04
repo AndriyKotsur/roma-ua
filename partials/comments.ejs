@@ -1,0 +1,36 @@
+<div id="comments" class="comments">
+    <h3 class="comment__title">Додати коментар</h3>
+    <form id="comment-form" data-id="<%= article._id %>" data-title="<%= article.title %>" class="comment-form">
+        <input id="comment-name" class="comment-input" type="text" name="name" placeholder="Введіть ваше ім'я"
+            required />
+        <textarea id="comment-text" class="comment-textarea" name="message" placeholder="Введіть ваш коментар"
+            required></textarea>
+        <div id="recaptcha" class="g-recaptcha" data-sitekey="6LfyjBoaAAAAAIn7wD_wmQ3yvCRMj3v0xw8hdLPy" data-callback="recaptchaResponse"></div>
+        <div class="comment__action">
+            <div id="comment-counter" class="comment__counter">
+                <span class="comment__counter-current">0</span>
+                <span>/</span>
+                <span class="comment__counter-max">1500</span>
+            </div>
+            <button id="comment-btn" type="submit" class="btn btn-green comment-button">Надіслати</button>
+        </div>
+    </form>
+
+    <h3 class="comment__title">Коментарі - <%= article.comments.length %></h3>
+    <ul class="comments-list">
+        <% if(article.comments.length) { %>
+        <% article.comments.forEach(item => { %>
+        <li class="comment-item">
+            <div class="comment__info">
+                <span class="comment__name"><%= item.userName %></span>
+                <span class="comment__date"><%= item.date.split(',')[0] %></span>
+                <span class="comment__time"><%= item.date.split(',')[1] %></span>
+            </div>
+            <p class="comment__text"><%= item.text %></p>
+        </li>
+    </ul>
+    <% }) %>
+    <% } else { %>
+    <li class="error-message">Немає доданих коментарів :(</li>
+    <% } %>
+</div>

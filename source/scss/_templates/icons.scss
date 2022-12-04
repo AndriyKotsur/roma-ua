@@ -1,0 +1,220 @@
+.icon {
+    width: 1em;
+    height: 1em;
+
+    &-header {
+        @include hidden;
+
+        @include screen-tb {
+            visibility: visible;
+            display: block;
+            width: 400px;
+            height: 120px;
+        }
+
+        @include screen-xl() {
+            width: 550px;
+            height: 170px;
+        }
+    }
+
+    &-mobile {
+        visibility: visible;
+        display: block;
+        width: 155px;
+        height: 120px;
+
+        @include screen-tb {
+            @include hidden;
+        }
+    }
+
+    &-footer {
+        width: 100px;
+        height: 75px;
+
+        @include screen-tb {
+            width: 50px;
+            height: 50px;
+        }
+
+        @include screen-xl() {
+            width: 75px;
+            height: 75px;
+        }
+    }
+
+    &-home {
+        width: 20px;
+        height: 20px;
+        fill: #fff;
+    }
+
+    &-dropdown {
+        width: 10px;
+        height: 10px;
+        fill: #fff;
+    }
+
+    &-search {
+        width: 20px;
+        height: 20px;
+        fill: #fff;
+
+        @include screen-xl() {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+    &-views {
+        width: 10px;
+        height: 10px;
+        margin-right: 10px;
+        fill: #000;
+
+        @include screen-xl() {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    &-comments {
+        width: 10px;
+        height: 10px;
+        margin-right: 10px;
+        fill: #000;
+
+        @include screen-xl() {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    &-video {
+        width: 45px;
+        height: 35px;
+        fill: #fff;
+
+        @include screen-xl() {
+            width: 65px;
+            height: 55px;
+        }
+    }
+
+    &-arrow {
+        width: 35px;
+        height: 25px;
+        fill: $color2;
+    }
+
+    &-facebook {
+        width: 25px;
+        height: 25px;
+        fill: #fff;
+    }
+
+    &-instagram {
+        width: 25px;
+        height: 25px;
+        fill: #fff;
+    }
+
+    &-linkedin {
+        width: 50px;
+        height: 50px;
+        fill: $color5;
+    }
+
+    &-messenger {
+        width: 50px;
+        height: 50px;
+        fill: $color5;
+    }
+
+    &-twitter {
+        width: 25px;
+        height: 25px;
+        fill: #fff;
+    }
+
+    &-youtube {
+        width: 25px;
+        height: 25px;
+        fill: #fff;
+    }
+
+    &-media {
+        width: 30px;
+        height: 30px;
+        margin-right: 20px;
+        fill: $color6;
+    }
+
+    &-folder {
+        width: 135px;
+        height: 105px;
+
+        @include screen-tb {
+            width: 200px;
+            height: 170px;
+        }
+    }
+
+    &-book {
+        width: 135px;
+        height: 100px;
+
+        @include screen-tb {
+            width: 200px;
+            height: 180px;
+        }
+    }
+
+    &-document {
+        width: 135px;
+        height: 165px;
+
+        @include screen-tb {
+            width: 160px;
+            height: 200px;
+        }
+    }
+
+    &-download {
+        width: 25px;
+        height: 25px;
+        margin-left: 25px;
+    }
+
+    &-pagination,
+    &-pagination {
+        width: 10px;
+        height: 15px;
+        transform: translateY(20%);
+        fill: #fff;
+    }
+
+    &-back {
+        width: 20px;
+        height: 20px;
+        transform: rotate(180deg);
+        fill: #fff;
+    }
+
+    &-checkbox {
+        width: 21px;
+        height: 21px;
+        display: block;
+    }
+
+    &-visa {
+        width: 75px;
+        height: 25px;
+    }
+
+    &-mastercard {
+        width: 40px;
+        height: 25px;
+    }
+}

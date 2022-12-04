@@ -1,0 +1,22 @@
+<aside class="aside-blog">
+    <h3 class="title title-outline">
+        Більше думок
+    </h3>
+    <ul class="aside-blog__list">
+        <% if(asideBlog.length) { %>
+            <% asideBlog.forEach(item => { %>
+            <li class="aside-blog__item">
+                <a href="/blog/<%= item.url %>" class="aside-blog__image">
+                    <img class="lazyload" data-src="<%= item.avatar %>" alt="<%= item.name %>">
+                </a>
+                <div class="aside-blog__content">
+                    <h4 class="aside-blog__name"><%= item.name %></h3>
+                    <a href="/blog/<%= item.url %>" class="aside-blog__title"><%= item.title %></a>
+                </div>
+            </li>
+            <% }) %>
+        <% } else { %>
+            <span class="error-message">Немає більше доданих думок :(</span>
+        <% } %>
+    </ul>
+</aside>

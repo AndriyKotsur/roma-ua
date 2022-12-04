@@ -1,0 +1,22 @@
+<aside class="aside-organization">
+    <h3 class="title title-outline">
+        Більше організацій
+    </h3>
+    <% if(asideOrganizations.length) { %>
+    <ul class="aside-organization__list">
+            <% asideOrganizations.forEach(item => { %>
+            <li class="aside-organization__item">
+                <a href="/organization/<%= item.category %>/<%= item.url %>" class="aside-organization__image">
+                    <img class="lazyload" data-src="<%= item.image %>" alt="<%= item.title %>">
+                </a>
+                <div class="aside-organization__content">
+                    <a href="/organization/<%= item.category %>/<%= item.url %>" class="aside-organization__name"><%= item.title %></a>
+                    <p class="aside-organization__title"><%= item.description %></p>
+                </div>
+            </li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <span class="error-message">Немає більше доданих організацій :(</span>
+    <% } %>
+</aside>

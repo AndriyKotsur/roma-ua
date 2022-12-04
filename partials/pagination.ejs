@@ -1,0 +1,60 @@
+<% if (pages > 1) { %>
+    <ul class="pagination">
+        <% if (currentPage == 1) { %>
+        <li class="pagination__item">
+            <a class="pagination__link prev disabled">
+                <svg class="icon icon-pagination">
+                    <use href="/icons/sprite.svg#icon-pagination-left"></use>
+                </svg>
+            </a>
+        </li>
+        <% } else { %>
+        <li class="pagination__item">
+            <a href="/<%= page %>?page=1" class="pagination__link prev">
+                <svg class="icon icon-pagination">
+                    <use href="/icons/sprite.svg#icon-pagination-left"></use>
+                </svg>
+            </a>
+        </li>
+        <% } %>
+        <% let i = (Number(currentPage) > 3 ? Number(currentPage) - 2 : 1) %>
+        <% if (i !== 1) { %>
+        <li class="pagination__item">
+            <a class="pagination__link disabled">...</a>
+        </li>
+        <% } %>
+        <% for (; i <= (Number(currentPage) + 2) && i <= pages; i++) { %>
+        <% if (i == currentPage) { %>
+        <li class="pagination__item">
+            <a class="pagination__link active"><%= i %></a>
+        </li>
+        <% } else { %>
+        <li class="pagination__item">
+            <a href="/<%= page %>?page=<%= i %>" class="pagination__link"><%= i %></a>
+        </li>
+        <% } %>
+        <% if (i == Number(currentPage) + 2 && i < pages) { %>
+        <li class="pagination__item">
+            <a class="pagination__link disabled">...</a>
+        </li>
+        <% } %>
+        <% } %>
+        <% if (currentPage == pages) { %>
+        <li class="pagination__item">
+            <a class="pagination__link next disabled">
+                <svg class="icon icon-pagination">
+                    <use href="/icons/sprite.svg#icon-pagination-right"></use>
+                </svg>
+            </a>
+        </li>
+        <% } else { %>
+        <li class="pagination__item">
+            <a href="/<%= page %>?page=<%= pages %>" class="pagination__link next">
+                <svg class="icon icon-pagination">
+                    <use href="/icons/sprite.svg#icon-pagination-right"></use>
+                </svg>
+            </a>
+        </li>
+        <% } %>
+    </ul>
+<% } %>

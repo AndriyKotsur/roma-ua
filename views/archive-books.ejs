@@ -1,0 +1,28 @@
+<%-  include('../partials/header')-%>
+<%-  include('../partials/preloader.ejs')-%>
+<section class="archive-books">
+    <div class="archive-books__inner">
+        <h1 class="archive-books__header">Архів із книгами</h1>
+        <% if(books.length) { %>
+        <ul class="archive-books__list">
+                <% books.forEach(item => { %>
+                <li class="archive-books__item">
+                    <div class="archive-books__wrapper">
+                        <picture class="archive-books__image">
+                            <svg class="icon icon-folder">
+                                <use href="/icons/sprite.svg#icon-book"></use>
+                            </svg>
+                        </picture>
+                        <h2 class="archive-books__title"><%= item.title %></h2>
+                        <a href="/books/<%= item.url %>" class="archive-books__link"></a>
+                    </div>
+                </li>
+                <% }) %>
+            </ul>
+            <%-  include('../partials/pagination', {page: 'books'})-%>
+        <% } else { %>
+            <span class="error-message error-message__extended">Немає доданих архівів із книгами :(</span>
+        <% } %>
+    </div>
+</section>
+<%-  include('../partials/footer')-%>

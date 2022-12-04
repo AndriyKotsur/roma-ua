@@ -1,0 +1,43 @@
+<%-  include('../partials/header')-%>
+<%-  include('../partials/preloader.ejs')-%>
+<section class="article">
+  <div class="container">
+    <div class="article__inner">
+      <div id="main" class="main__container">
+        <%-  include('../partials/data')-%>
+        <%-  include('../partials/comments')-%>
+      </div>
+      <div id="aside" class="aside__container">
+        <% if(typeof asideNews == 'object' && asideNews) { %>
+        <aside class="aside-news">
+          <h3 class="title title-outline">
+            Більше новин
+          </h3>
+          <%-  include('../partials/aside-news')-%>
+        </aside>
+        <% } else if(typeof asideVideos == 'object' && asideVideos) { %>
+        <aside class="aside-video">
+          <h3 class="title title-outline">
+            Більше відео
+          </h3>
+          <%-  include('../partials/aside-videos')-%>
+        </aside>
+        <% } else if (typeof asideOrganizations == 'object' && asideOrganizations) { %>
+          <%-  include('../partials/aside-profile')-%>
+          <%-  include('../partials/aside-organizations')-%>
+
+        <% } else if(typeof asideBlog == 'object' && asideBlog) { %>
+          <%-  include('../partials/aside-profile')-%>
+          <%-  include('../partials/aside-blog')-%>
+
+        <% } else if(typeof asidePortraits == 'object' && asidePortraits) { %>
+          <%-  include('../partials/aside-profile')-%>
+          <%-  include('../partials/aside-portraits')-%>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</section>
+<%-  include('../partials/back.ejs')-%>
+<%-  include('../partials/loader.ejs')-%>
+<%-  include('../partials/footer')-%>

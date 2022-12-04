@@ -1,0 +1,30 @@
+.aside-news {
+    margin-bottom: 25px;
+
+    @include screen-xl() {
+        margin-bottom: 50px;
+    }
+
+    .news {
+        &-item {
+            border-bottom: none;
+        }
+
+        &__info {
+            @include screen-xl() {
+                flex-direction: column;
+            }
+        }
+
+        &__title {
+
+            @include screen-xl() {
+                max-width: 360px;
+                height: 90px;
+                -webkit-line-clamp: 3;
+                font-size: 24px;
+                line-height: 1.25;
+            }
+        }
+    }
+}

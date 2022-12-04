@@ -1,0 +1,61 @@
+<%-  include('../partials/header')-%>
+<%-  include('../partials/preloader.ejs')-%>
+<section class="document">
+    <div class="document__inner">
+        <% if(document) { %>
+            <% document.forEach(item => { %>
+            <div class="document__item">
+                <picture class="document__image">
+                    <svg class="icon icon-document">
+                        <use href="/icons/sprite.svg#icon-document"></use>
+                    </svg>
+                </picture>
+                <div class="document__content">
+                    <h1 class="document__header"><%= item.title %></h1>
+                    <% if(item.url && item.document) { %>
+                        <a href="/download/<%= item.url %>" class="document__link">
+                            Завантажити
+                            <svg class="icon icon-download">
+                                <use href="/icons/sprite.svg#icon-download"></use>
+                            </svg>
+                        </a>
+                    <% } %>
+                    <div id="description" class="document__description">
+                        <span class="document__text">Опис:</span>
+                        <p class="document__bibliography"><%= item.bibliographicDescription %></p>
+                        <p class="document__annotation"><%= item.annotation %></p>
+                    </div>
+                    <button type="button" id="extend" class="document__extend">
+                        <span>Показати більше</span>
+                    </button>
+                </div>
+            </div>
+            <% }) %>
+        <% } else { %>
+            <span class="error-message error-message__archive">Інформація про документ відсутня :(</span>
+        <% } %>
+        <div class="related-documents">
+            <h2 class="related-documents__header">Документи із цієї категорії:</h2>
+            <% if(documents.length) { %>
+            <ul class="related-documents__list">
+                <% documents.forEach(item => { %>
+                <li class="related-documents__item">
+                    <div class="related-documents__wrapper">
+                        <picture class="related-documents__image">
+                            <svg class="icon icon-document">
+                                <use href="/icons/sprite.svg#icon-document"></use>
+                            </svg>
+                        </picture>
+                        <h2 class="related-documents__title"><%= item.title %></h2>
+                        <a href="/documents/<%= item.url %>" class="related-documents__link"></a>
+                    </div>
+                </li>
+                <% }) %>
+            </ul>
+            <% } else { %>
+                <span class="error-message">Немає документів із цієї категорії :(</span>
+            <% } %>
+        </div>
+    </div>
+</section>
+<%-  include('../partials/footer')-%>

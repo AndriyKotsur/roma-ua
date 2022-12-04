@@ -1,0 +1,34 @@
+<% if(asideNews.length) { %>
+<ul class="news-list">
+        <% asideNews.forEach(item => { %>
+        <li class="news-item">
+            <a href="/news/<%= item.category %>/<%= item.url %>" class="news__image">
+                <img class="lazyload" data-src="<%= item.image %>" alt="<%= item.title %>">
+            </a>
+            <div class="news__content">
+                <span class="news__time"><%= item.date.split(',')[1] %></span>
+                <div class="news__info">
+                    <span class="news__date"><%= item.date.split(',')[0] %></span>
+                    <div class="news__icons">
+                        <a href="/news/<%= item.category %>/<%= item.url %>" class="news__views">
+                            <svg class="icon icon-views">
+                                <use href="/icons/sprite.svg#icon-eye"></use>
+                            </svg>
+                            <%= item.views %>
+                        </a>
+                        <a href="/news/<%= item.category %>/<%= item.url %>#comments" class="news__comments">
+                            <svg class="icon icon-comments">
+                                <use href="/icons/sprite.svg#icon-comment"></use>
+                            </svg>
+                            <%= item.comments.length %>
+                        </a>
+                    </div>
+                </div>
+                <a href="/news/<%= item.category %>/<%= item.url %>" class="news__title"><%= item.title %></a>
+            </div>
+        </li>
+        <% }) %>
+    </ul>
+<% } else { %>
+    <span class="error-message">Немає більше доданих новин :(</span>
+<% } %>

@@ -1,0 +1,280 @@
+@import '../../style.scss';
+
+.document {
+    &__inner {
+        max-width: 1440px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 0 15px 50px;
+        margin: 0 auto;
+
+        @include screen-tb() {
+            padding: 25px 20px 50px;
+        }
+
+        @include screen-l() {
+            padding: 50px 20px 100px;
+        }
+
+        @include screen-xl() {
+            padding: 50px 250px 100px;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 50px;
+
+        @include screen-tb {
+            flex-direction: row;
+        }
+
+        @include screen-xl {
+            margin-bottom: 100px;
+        }
+    }
+
+    &__content {
+        position: relative;
+        width: 100%;
+    }
+
+    &__image {
+        margin-bottom: 20px;
+
+        @include screen-tb {
+            margin-bottom: 0;
+            margin-right: 40px;
+        }
+
+        svg {
+            width: 160px;
+            height: 190px;
+
+            @include screen-tb {
+                width: 180px;
+                height: 240px;
+            }
+
+            @include screen-xl {
+                width: 200px;
+                height: 260px;
+            }
+        }
+    }
+
+    &__header {
+        margin-bottom: 15px;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.25;
+        text-align: left;
+
+        @include screen-tb() {
+            font-size: 28px;
+        }
+
+        @include screen-xl() {
+            font-size: 32px;
+        }
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.56;
+        text-align: left;
+        @include transition;
+        color: #000;
+
+        &:hover {
+            opacity: 0.7;
+            @include transition;
+        }
+    }
+
+    &__description {
+        position: relative;
+        max-height: 128px;
+        padding: 15px 10px;
+        border: 1px solid #000;
+        border-radius: 4px;
+        overflow: hidden;
+
+        @include screen-tb {
+            max-height: 105px;
+        }
+
+        @include screen-xl {
+            max-height: 139px;
+        }
+
+        &.active {
+            max-height: 100%;
+        }
+    }
+
+    &__text {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.38;
+        text-align: left;
+
+        @include screen-tb {
+            font-size: 20px;
+        }
+
+        @include screen-xl {
+            font-size: 22px;
+        }
+    }
+
+    &__bibliography {
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.56;
+        text-align: left;
+        color: #000;
+    }
+
+    &__annotation {
+        position: relative;
+        margin-top: 5px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.56;
+        text-align: left;
+        color: #000;
+
+        &.active {
+            @include transition;
+            overflow: visible;
+
+        }
+    }
+
+    &__extend {
+        position: absolute;
+        @include hidden;
+        left: 50%;
+        bottom: -22px;
+        width: 160px;
+        padding: 5px 10px;
+        transform: translateX(-50%);
+        background: #fff;
+        -webkit-tap-highlight-color: transparent;
+
+        &.extended {
+            visibility: visible;
+            display: block;
+        }
+
+        &>span {
+            @include transition;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1;
+            color: #000;
+
+            &:hover {
+                @include transition;
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+.related-documents {
+    &__header {
+        margin-bottom: 25px;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.25;
+        text-align: left;
+
+        @include screen-tb() {
+            margin-bottom: 35px;
+            font-size: 22px;
+        }
+
+        @include screen-xl() {
+            margin-bottom: 50px;
+            font-size: 24px;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 0 -14px -20px;
+
+        @include screen-tb {
+            margin: 0 -20px -35px;
+        }
+
+        @include screen-xl {
+            margin: 0 -104px -50px;
+        }
+    }
+
+    &__item {
+        position: relative;
+        width: calc((100% / 2) - (30px / 2));
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 7px 20px;
+        cursor: pointer;
+
+        @include screen-tb() {
+            width: calc((100% / 3) - (245px / 3));
+            margin: 0 40px 35px;
+        }
+
+        @include screen-xl () {
+            width: calc((100% / 3) - (445px / 3));
+            margin: 0 74px 50px;
+        }
+    }
+
+    &__wrapper {
+        width: 135px;
+
+        @include screen-tb {
+            width: 160px;
+        }
+    }
+
+    &__title {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        margin-top: 15px;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.78;
+        text-align: center;
+        overflow: hidden;
+
+        @include screen-tb {
+            font-size: 16px;
+        }
+    }
+
+    &__link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}

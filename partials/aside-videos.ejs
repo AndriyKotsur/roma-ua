@@ -1,0 +1,37 @@
+<% if(asideVideos.length) { %>
+<ul class="video-list">
+        <% asideVideos.forEach(item => { %>
+        <li class="video-item">
+            <a href="/video/<%= item.category %>/<%= item.url %>" class="video__image">
+                <img class="lazyload" data-src="<%= item.thumbnail ? item.thumbnail : item.image %>" alt="<%= item.title %>">
+                <svg class="icon icon-video">
+                    <use href="/icons/sprite.svg#icon-video"></use>
+                </svg>
+            </a>
+            <div class="video__content">
+                <span class="video__time"><%= item.date.split(',')[1] %></span>
+                <div class="video__info">
+                    <span class="video__date"><%= item.date.split(',')[0] %></span>
+                    <div class="video__icons">
+                        <a href="/video/<%= item.category %>/<%= item.url %>" class="video__views">
+                            <svg class="icon icon-views">
+                                <use href="/icons/sprite.svg#icon-eye"></use>
+                            </svg>
+                            <%= item.views %>
+                        </a>
+                        <a href="/video/<%= item.category %>/<%= item.url %>#comments" class="video__comments">
+                            <svg class="icon icon-comments">
+                                <use href="/icons/sprite.svg#icon-comment"></use>
+                            </svg>
+                            <%= item.comments.length %>
+                        </a>
+                    </div>
+                </div>
+                <a href="/video/<%= item.category %>/<%= item.url %>" class="video__title"><%= item.title %></a>
+            </div>
+        </li>
+        <% }) %>
+    </ul>
+    <% } else { %>
+        <span class="error-message">Немає більше доданих відео :(</span>
+    <% } %>

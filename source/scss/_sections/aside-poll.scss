@@ -1,0 +1,119 @@
+.aside-poll {
+    margin-bottom: 25px;
+
+    @include screen-xl {
+        margin-bottom: 50px;
+    }
+
+    .poll {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 20px;
+        margin-bottom: 25px;
+        background: #fff;
+        border: 1px solid #000;
+        border-radius: 4px;
+
+        @include screen-xl() {
+            padding: 30px 45px;
+            margin-bottom: 50px;
+        }
+
+        &__title {
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.33;
+            text-align: center;
+            color: #000;
+
+            @include screen-xl() {
+                margin-bottom: 30px;
+                font-size: 16px;
+            }
+        }
+
+        &__items {
+            margin-bottom: 25px;
+            cursor: pointer;
+
+            @include screen-xl() {
+                margin-bottom: 30px;
+            }
+        }
+
+        &__item {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            transition: width 1s ease-in-out;
+
+            &:hover {
+                .poll__item-title {
+                    opacity: 0.7;
+                }
+            }
+
+            &.selected {
+                background: $color1;
+                color: #fff;
+
+                .poll__item-title {
+                    color: #fff;
+                }
+
+                &:hover {
+                    .poll__item-title {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            &.voted {
+                border: 2px solid $color4;
+                pointer-events: none;
+                
+                .poll__item-progress {
+                    background: $color3;
+                    transition: width 1s linear;
+                }
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 15px;
+            }
+
+            &-title {
+                color: #000;
+                z-index: 6;
+            }
+
+            &-progress {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0%;
+                height: 100%;
+                z-index: 4;
+
+                &.active {
+                    background: $color4;
+                }
+            }
+        }
+
+        &__btn {
+            width: 100%;
+            @include transition;
+
+            &:hover {
+                background: $color7;
+                @include transition;
+            }
+
+            &.disabled {
+                pointer-events: none;
+            }
+        }
+    }
+}

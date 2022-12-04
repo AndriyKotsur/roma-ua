@@ -1,0 +1,26 @@
+<%-  include('../partials/header')-%>
+<%-  include('../partials/preloader.ejs')-%>
+<section class="media">
+    <div class="container">
+        <div class="media__inner">
+            <h1 class="media__header">Ромські медіа</h1>
+            <% if(media.length) { %>
+            <ul class="media-list">
+                <% media.forEach(item => { %>
+                <li class="media-item">
+                    <a href="<%= item.url %>" class="media__link">
+                        <svg class="icon icon-media">
+                            <use href="icons/sprite.svg#icon-media"></use>
+                        </svg>
+                        <%= item.title %>
+                    </a>
+                </li>
+                <% }) %>
+            </ul>
+            <% } else { %>
+                <span class="error-message error-message__extended">Немає доданих медіа :(</span>
+            <% } %>
+        </div>
+    </div>
+</section>
+<%-  include('../partials/footer')-%>

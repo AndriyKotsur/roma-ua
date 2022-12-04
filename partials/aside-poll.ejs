@@ -1,0 +1,21 @@
+<aside class="aside-poll">
+    <h3 class="title title-outline">
+        Опитування
+    </h3>
+    <% if(poll) { %>
+    <div id="<%= poll._id %>" class="poll">
+        <h4 class="poll__title"><%= poll.title %></h4>
+        <div class="poll__items">
+            <% poll.answers.forEach((item, i) => { %>
+            <div role="button" data-index="<%= i %>" data-votes="<%= item.votes %>" class="btn btn-red poll__item">
+                <div class="poll__item-title"><%= item.title %></div>
+                <div class="poll__item-progress"></div>
+            </div>
+            <% }) %>
+        </div>
+        <button id="poll-vote" type="button" class="btn btn-green poll__btn">Голосувати</button>
+    </div>
+    <% } else { %>
+        <span class="error-message">Немає доданого опитування :(</span>
+    <% } %>
+</aside>

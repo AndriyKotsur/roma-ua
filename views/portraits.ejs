@@ -1,0 +1,27 @@
+<%-  include('../partials/header')-%>
+<%-  include('../partials/preloader.ejs')-%>
+<section class="portraits">
+    <div class="portraits__inner">
+        <h1 class="portraits__header">Портрети ромів</h1>
+        <% if(portraits.length) { %>
+        <ul class="portraits-list">
+            <% portraits.forEach(item => { %>
+            <li class="portraits-item">
+                <picture class="portraits__image">
+                    <img class="lazyload" data-src="<%= item.avatar %>" alt="<%= item.title %>">
+                </picture>
+                <div class="portraits__info">
+                    <h2 class="portraits__title"><%= item.name %></h2>
+                    <p class="portraits__description"><%= item.position %></p>
+                </div>
+                <a href="/portrait/<%= item.url %>" class="portraits__link"></a>
+            </li>
+            <% }) %>
+        </ul>
+        <%-  include('../partials/pagination', {page: 'portrait'})-%>
+        <% } else { %>
+            <span class="error-message error-message__extended">Немає доданих портретів :(</span>
+        <% } %>
+    </div>
+</section>
+<%-  include('../partials/footer')-%>

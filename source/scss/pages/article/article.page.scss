@@ -1,0 +1,45 @@
+@import '../../style.scss';
+@import '../../_sections/data.scss';
+@import '../../_sections/news.scss';
+@import '../../_sections/videos.scss';
+@import '../../_sections/comments.scss';
+@import '../../_sections/aside-news.scss';
+@import '../../_sections/aside-videos.scss';
+@import '../../_sections/aside-blog.scss';
+@import '../../_sections/aside-organization.scss';
+@import '../../_sections/aside-portrait.scss';
+@import '../../_sections/aside-profile.scss';
+@import '../../_sections/aside-donate.scss';
+
+.article {
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        padding: 25px 0 50px;
+
+        @include screen-l() {
+            flex-direction: row;
+        }
+
+        @include screen-xl {
+            padding: 50px 0 100px;
+        }
+    }
+
+    .main__container {
+        width: 100%;
+
+        @include screen-l() {
+            width: 54%;
+        }
+    }
+
+    .aside__container {
+        @include hidden();
+
+        @include screen-l() {
+            visibility: visible;
+            display: block;
+        }
+    }
+}

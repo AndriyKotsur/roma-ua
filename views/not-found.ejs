@@ -1,0 +1,28 @@
+<%-  include('../partials/header')-%>
+<%-  include('../partials/preloader.ejs')-%>
+<section class="not-found">
+    <div class="container">
+        <div class="not-found__inner">
+            <picture class="not-found__desktop">
+                <img src="/icons/logo-desktop.svg" alt="Logotype desktop icon">
+            </picture>
+            <picture class="not-found__mobile">
+                <img src="/icons/logo-mobile.svg" alt="Logotype mobile icon">
+            </picture>
+            <h1 class="title title-plain not-found__title">404</h1>
+            <p class="title title-plain not-found__subtitle">Сторінка не знайдена :(</p>
+            <div class="not-found__btns">
+                <a href="/" class="btn btn-red not-found__main">
+                    <span class="not-found__text">На головну сторінку</span>
+                </a>
+                <button id="back" class="not-found__back">
+                    Повернутися назад
+                    <svg class="icon icon-arrow">
+                        <use href="icons/sprite.svg#icon-arrow"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+<%-  include('../partials/footer')-%>

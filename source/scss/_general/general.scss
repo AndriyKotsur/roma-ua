@@ -1,0 +1,45 @@
+@import './mixins.scss';
+
+.container {
+  @include container_width();
+  padding: 0 15px;
+
+  @include screen-xl() {
+    padding: 0 20px;
+  }
+}
+
+.body {
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+.main__container {
+  position: relative;
+  height: 100%;
+  margin-bottom: 25px;
+
+  @include screen-tb() {
+    width: 51%;
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+
+  @include screen-xl() {
+    width: 54%;
+    margin-right: 40px;
+  }
+}
+
+.aside__container {
+  position: relative;
+
+  @include screen-tb() {
+    width: 49%;
+  }
+
+  @include screen-xl() {
+    width: 46%;
+  }
+}

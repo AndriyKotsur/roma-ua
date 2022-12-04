@@ -1,0 +1,13 @@
+<aside class="profile">
+    <div class="profile__inner">
+        <picture class="profile__image">
+            <img class="lazyload" data-src="<%= !article.avatar ? article.image : article.avatar %>"
+                alt="<%= !article.avatar ? article.title : article.name %>">
+        </picture>
+        <div class="profile__content">
+            <h2 class="profile__name"><%= !article.name ? article.title : article.name%></h2>
+            <p class="<%= !article.position ? 'profile__text' : 'profile__profession' %>"><%= !article.position ? article.description : article.position %></p>
+            <p class="<%= !article.position ? 'profile__profession' : 'profile__text' %>"><%= !article.position ? article.position : article.description %></p>
+        </div>
+    </div>
+</aside>

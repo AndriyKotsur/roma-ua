@@ -1,0 +1,96 @@
+@import '../../style.scss';
+
+.privacy-policy {
+  &__inner {
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px 50px;
+    margin: 0 auto;
+
+    @include screen-tb() {
+      padding: 25px 20px 50px;
+    }
+
+    @include screen-l() {
+      padding: 50px 20px 100px;
+    }
+  }
+
+  &__header {
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.04;
+    text-align: center;
+
+    @include screen-tb() {
+      margin-bottom: 25px;
+      font-size: 28px;
+    }
+
+    @include screen-xl() {
+      margin-bottom: 50px;
+      font-size: 32px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: baseline;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      padding-right: 10px;
+      margin-right: 10px;
+      border-radius: 50%;
+      background: $color1;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+
+      @include screen-xl {
+        margin-bottom: 25px;
+      }
+    }
+
+    &.subitem {
+      margin-left: 15px;
+      font-size: 12px;
+
+      &::before {
+        background: $color2;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 15px;
+
+        @include screen-xl {
+          margin-bottom: 20px;
+        }
+      }
+
+      @include screen-tb() {
+        margin-left: 20px;
+        font-size: 14px;
+      }
+    }
+
+    @include screen-tb() {
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
+    @include screen-xl() {
+      line-height: 1.56;
+    }
+  }
+}

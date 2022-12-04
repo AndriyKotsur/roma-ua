@@ -1,0 +1,250 @@
+<%-  include('../partials/header')-%>
+<%-  include('../partials/preloader.ejs')-%>
+<section class="top__news">
+    <div class="top__news-inner">
+        <div class="main__container">
+            <% if(topNews[0]) { %>
+            <a href="/news/<%= topNews[0].category %>/<%= topNews[0].url %>" class="top__news-image">
+                <img class="lazyload" data-src="<%= topNews[0].image %>" alt="<%= topNews[0].title %>">
+            </a>
+            <div class="top__news-content">
+                <span class="top__news-time"><%= topNews[0].date.split(',')[1] %></span>
+                <div class="top__news-info">
+                    <span class="top__news-date"><%= topNews[0].date.split(',')[0]%></span>
+                    <div class="top__news-icons">
+                        <a href="/news/<%= topNews[0].category %>/<%= topNews[0].url %>" class="top__news-views">
+                            <svg class="icon icon-views">
+                                <use href="icons/sprite.svg#icon-eye"></use>
+                            </svg>
+                            <%= topNews[0].views %>
+                        </a>
+                        <a href="/news/<%= topNews[0].category %>/<%= topNews[0].url %>#comments" class="top__news-comments">
+                            <svg class="icon icon-comments">
+                                <use href="icons/sprite.svg#icon-comment"></use>
+                            </svg>
+                            <%= topNews[0].comments.length %>
+                        </a>
+                    </div>
+                </div>
+                <a href="/news/<%= topNews[0].category %>/<%= topNews[0].url %>"
+                    class="top__news-title"><%= topNews[0].title %></a>
+            </div>
+            <% } else { %>
+            <span class="error-message">Немає доданої головної новини :(</span>
+            <% } %>
+        </div>
+        <div class="aside__container">
+            <% if(topNews[1] || topNews[2]) { %>
+            <aside class="aside-top__news">
+                <ul class="news-list">
+                    <% if(topNews[1]) { %>
+                    <li class="news-item">
+                        <a href="/news/<%= topNews[1].category %>/<%= topNews[1].url %>" class="news__image">
+                            <img class="lazyload" data-src="<%= topNews[1].image %>" alt="<%= topNews[1].title %>">
+                        </a>
+                        <div class="news__content">
+                            <span class="news__time"><%= topNews[1].date.split(',')[1] %></span>
+                            <div class="news__info">
+                                <span class="news__date"><%= topNews[1].date.split(',')[0] %></span>
+                                <div class="news__icons">
+                                    <a href="/news/<%= topNews[1].category %>/<%= topNews[1].url %>"
+                                        class="news__views">
+                                        <svg class="icon icon-views">
+                                            <use href="icons/sprite.svg#icon-eye"></use>
+                                        </svg>
+                                        <%= topNews[1].views %>
+                                    </a>
+                                    <a href="/news/<%= topNews[1].category %>/<%= topNews[1].url %>#comments"
+                                        class="news__comments">
+                                        <svg class="icon icon-comments">
+                                            <use href="icons/sprite.svg#icon-comment"></use>
+                                        </svg>
+                                        <%= topNews[1].comments.length %>
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="/news/<%= topNews[1].category %>/<%= topNews[1].url %>"
+                                class="news__title"><%= topNews[1].title %></a>
+                        </div>
+                    </li>
+                    <% } else { %>
+                        <span class="error-message">Немає доданої головної новини:(</span>
+                    <% } %>
+                    <% if(topNews[2]) { %>
+                    <li class="news-item">
+                        <a href="/news/<%= topNews[2].category %>/<%= topNews[2].url %>" class="news__image">
+                            <img class="lazyload" data-src="<%= topNews[2].image %>" alt="<%= topNews[2].title %>">
+                        </a>
+                        <div class="news__content">
+                            <span class="news__time"><%= topNews[2].date.split(',')[1] %></span>
+                            <div class="news__info">
+                                <span class="news__date"><%= topNews[2].date.split(',')[0] %></span>
+                                <div class="news__icons">
+                                    <a href="/news/<%= topNews[2].category %>/<%= topNews[2].url %>"
+                                        class="news__views">
+                                        <svg class="icon icon-views">
+                                            <use href="icons/sprite.svg#icon-eye"></use>
+                                        </svg>
+                                        <%= topNews[2].views %>
+                                    </a>
+                                    <a href="/news/<%= topNews[2].category %>/<%= topNews[2].url %>#comments"
+                                        class="news__comments">
+                                        <svg class="icon icon-comments">
+                                            <use href="icons/sprite.svg#icon-comment"></use>
+                                        </svg>
+                                        <%= topNews[2].comments.length %>
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="/news/<%= topNews[2].category %>/<%= topNews[2].url %>"
+                                class="news__title"><%= topNews[2].title %></a>
+                        </div>
+                    </li>
+                    <% } else { %>
+                        <span class="error-message">Немає доданої головної новини:(</span>
+                    <% } %>
+                </ul>
+                <% } else { %>
+                <span class="error-message">Немає доданої головної новини:(</span>
+                <% } %>
+        </div>
+</section>
+<section class="latest__news">
+    <div class="latest__news-inner">
+        <div class="main__container">
+            <h3 class="title title-outline">
+                Останні новини
+            </h3>
+            <%-  include('../partials/news.ejs')-%>
+            <a href="/news/transcarpathia" class="btn btn-red latest__news-btn">
+                <span class="latest__news-text">
+                    Показати всі новини
+                </span>
+            </a>
+        </div>
+        <div class="aside__container">
+            <aside class="aside-video">
+                <h3 class="title title-outline">
+                    Відео
+                </h3>
+                <%-  include('../partials/aside-videos.ejs')-%>
+            </aside>
+            <%-  include('../partials/aside-poll.ejs')-%>
+        </div>
+    </div>
+</section>
+<section class="blog">
+    <div class="blog__inner">
+        <h3 class="blog__header">Думки</h3>
+        <% if(blog.length) { %>
+        <div id="splide" class="splide">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <% blog.forEach(item => { %>
+                    <li class="splide__slide">
+                        <div class="blog-item__inner">
+                            <div class="blog__author">
+                                <picture class="blog__author-image">
+                                    <img class="lazyload" data-src="<%= item.avatar %>" alt="<%= item.title %>">
+                                </picture>
+                                <div class="blog__author-info">
+                                    <p class="blog__author-name"><%= item.name %></p>
+                                    <p class="blog__author-profession"><%= item.position %></p>
+                                </div>
+                            </div>
+                            <div class="blog__info">
+                                <span class="blog__time"><%= item.date.split(',')[1] %></span>
+                                <span class="blog__date"><%= item.date.split(',')[0] %></span>
+                            </div>
+                            <a href="/blog/<%= item.url %>" class="blog__title"><%= item.title %></a>
+                            <div class="blog__icons">
+                                <a href="/blog/<%= item.url %>" class="blog__views">
+                                    <svg class="icon icon-views">
+                                        <use href="icons/sprite.svg#icon-eye"></use>
+                                    </svg>
+                                    <%= item.views %>
+                                </a>
+                                <a href="/blog/<%= item.url %>" class="blog__comments">
+                                    <svg class="icon icon-comments">
+                                        <use href="icons/sprite.svg#icon-comment"></use>
+                                    </svg>
+                                    <%= item.comments.length %>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+        <% } else { %>
+        <span class="error-message error-message__blog">Немає доданих думок :(</span>
+        <% } %>
+    </div>
+</section>
+<section class="archive">
+    <div class="archive__inner">
+        <h2 class="archive__header">Архів</h2>
+        <div class="archive-list">
+            <div class="archive-item">
+                <h3 class="archive__title">Фото</h3>
+                <% if(photos.length) { %>
+                <ul class="archive__list">
+                    <% photos.forEach(item => { %>
+                    <li class="archive__item"><a href="/photos/<%= item.url %>"
+                            class="archive__link"><%= item.title %></a></li>
+                    <% }) %>
+                </ul>
+                <% } else { %>
+                <p class="archive__link">Немає доданих архівів із фотографіями</p>
+                <% } %>
+                <a href="/photos/" class="archive__btn">
+                    Архів із фотографіями
+                    <svg class="icon icon-arrow">
+                        <use href="icons/sprite.svg#icon-arrow"></use>
+                    </svg>
+                </a>
+            </div>
+            <div class="archive-item">
+                <h3 class="archive__title">Книги</h3>
+                <% if(books.length) { %>
+                <ul class="archive__list">
+                    <% books.forEach(item => { %>
+                    <li class="archive__item"><a href="/books/<%= item.url %>"
+                            class="archive__link"><%= item.title %></a></li>
+                    <% }) %>
+                </ul>
+                <% } else { %>
+                <p class="archive__link">Немає доданих архівів із книгами</p>
+                <% } %>
+                <a href="/books/" class="archive__btn">
+                    Архів із книгами
+                    <svg class="icon icon-arrow">
+                        <use href="icons/sprite.svg#icon-arrow"></use>
+                    </svg>
+                </a>
+            </div>
+            <div class="archive-item">
+                <h3 class="archive__title">Документи</h3>
+                <% if(documents.length) { %>
+                <ul class="archive__list">
+                    <% documents.forEach(item => { %>
+                    <li class="archive__item"><a href="/documents/<%= item.url %>"
+                            class="archive__link"><%= item.title %></a></li>
+                    <% }) %>
+                </ul>
+                <% } else { %>
+                <p class="archive__link">Немає доданих архівів із документами</p>
+                <% } %>
+                <a href="/documents/" class="archive__btn">
+                    Архів із документами
+                    <svg class="icon icon-arrow">
+                        <use href="icons/sprite.svg#icon-arrow"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<%-  include('../partials/loader.ejs')-%>
+<%-  include('../partials/footer')-%>

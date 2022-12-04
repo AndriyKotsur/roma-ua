@@ -1,0 +1,28 @@
+<%-  include('../partials/header')-%>
+<%-  include('../partials/preloader.ejs')-%>
+<section class="archive-documents">
+    <div class="archive-documents__inner">
+        <h1 class="archive-documents__header">Архів із документами</h1>
+        <% if(documents.length) { %>
+            <ul class="archive-documents__list">
+                <% documents.forEach(item => { %>
+                <li class="archive-documents__item">
+                    <div class="archive-documents__wrapper">
+                        <picture class="archive-documents__image">
+                            <svg class="icon icon-document">
+                                <use href="/icons/sprite.svg#icon-document"></use>
+                            </svg>
+                        </picture>
+                        <h2 class="archive-documents__title"><%= item.title %></h2>
+                        <a href="/documents/<%= item.url %>" class="archive-documents__link"></a>
+                    </div>
+                </li>
+                <% }) %>
+            </ul>
+            <%-  include('../partials/pagination', {page: 'documents'})-%>
+        <% } else { %>
+            <span class="error-message error-message__extended">Немає доданих архівів із документами :(</span>
+        <% } %>
+    </div>
+</section>
+<%-  include('../partials/footer')-%>

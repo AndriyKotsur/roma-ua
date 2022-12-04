@@ -1,0 +1,37 @@
+<%-  include('../partials/header')-%>
+<%-  include('../partials/preloader.ejs')-%>
+<section class="main__video">
+    <div class="container">
+        <div class="main__video-inner">
+            <div class="main__container">
+                <% switch (categoryUrl) {
+                    case 'tv-romano-givipen' : %>
+                    <h3 class="title title-plain">Відео ТВ Романо джівіпен</h3>
+                        <% break;
+                    case 'tv-romano-lav' : %>
+                    <h3 class="title title-plain">ТВ Романо лав</h3>
+                        <% break;
+                    case 'pap-jaz-fest' : %>
+                    <h3 class="title title-plain">Пап джаз фест</h3>
+                        <% break;
+                    case 'other' : %>
+                    <h3 class="title title-plain">Різне</h3>
+                        <% break;
+                    } %>
+                <%-  include('../partials/videos')-%>
+                <%-  include('../partials/category-pagination', {page: 'video', category: categoryUrl})-%>
+            </div>
+            <div class="aside__container">
+                <aside class="aside-news">
+                    <h3 class="title title-outline">
+                        Новини
+                    </h3>
+                    <%-  include('../partials/aside-news')-%>
+                </aside>
+                <%-  include('../partials/aside-poll')-%>
+            </div>
+        </div>
+    </div>
+</section>
+<%-  include('../partials/loader.ejs')-%>
+<%-  include('../partials/footer')-%>

@@ -1,0 +1,106 @@
+.btn {
+    font-size: 14px;
+    border-radius: 4px;
+    font-weight: 700;
+    line-height: 2.85;
+    text-align: center;
+
+    @include screen-xl() {
+        font-size: 16px;
+    }
+
+    &-red {
+        background: #fff;
+        border: 2px solid $color1;
+        color: #000;
+    }
+
+    &-green {
+        background: $color2;
+        border: 2px solid $color2;
+        color: #fff;
+    }
+
+    &-blue {
+        background: $color6;
+        color: #fff;
+    }
+}
+
+.btn-return {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    right: 20px;
+    bottom: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    @include transition;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 6;
+
+    &:hover {
+        background: $color9;
+        @include transition
+    }
+
+    &.active {
+        visibility: visible;
+        opacity: 1;
+        @include transition;
+    }
+
+    &__icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    @include screen-xl {
+        right: 50px;
+        bottom: 100px;
+        width: 65px;
+        height: 65px;
+    }
+}
+
+.btn-slider {
+    padding: 12px 8px;
+    border: 2px solid #fff;
+    border-radius: 4px;
+
+    @include screen-xl {
+        padding: 20px 15px;
+    }
+
+    &__prev {
+        svg {
+            width: 25px;
+            height: 15px;
+            transform: rotate(180deg);
+            fill: #fff;
+
+            @include screen-xl {
+                width: 35px;
+                height: 25px;
+            }
+        }
+    }
+
+    &__next {
+        svg {
+            width: 25px;
+            height: 15px;
+            fill: #fff;
+
+            @include screen-xl {
+                width: 35px;
+                height: 25px;
+            }
+        }
+    }
+}

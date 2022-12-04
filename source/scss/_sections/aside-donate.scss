@@ -1,0 +1,61 @@
+.aside-donate {
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 20px;
+        margin-bottom: 25px;
+        background: #fff;
+        border: 1px solid #000;
+        border-radius: 4px;
+
+        @include screen-tb() {
+            margin-bottom: 0;
+        }
+
+        @include screen-xl() {
+            margin-bottom: 0;
+            padding: 30px 45px;
+        }
+    }
+
+    &__title {
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #000;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.42;
+        text-align: center;
+
+        @include screen-xl() {
+            padding-bottom: 25px;
+            margin-bottom: 25px;
+            font-size: 16px;
+            line-height: 1.875;
+        }
+    }
+
+    &__text {
+        display: inline-block;
+
+        @include screen-xl() {
+            &::after {
+                content: ' грн';
+            }
+        }
+    }
+
+    &__btn {
+        min-width: 200px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        @include transition;
+
+        &:hover {
+            background: $color7;
+            @include transition;
+        }
+    }
+}
